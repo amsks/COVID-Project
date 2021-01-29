@@ -57,18 +57,18 @@ function HomePage({ history }) {
           if (doc.exists) {
             const date = doc.data().date;
             if (today > date) {
-              const resSummary = await axios.get(summaryUrl);
-              setSummary(resSummary.data);
-              updateDB(resSummary.data, today, "global");
+              const fullSummary = await axios.get(summaryUrl);
+              setSummary(fullSummary.data);
+              updateDB(fullSummary.data, today, "global");
             } else {
               console.log("cached from DB");
               setSummary(doc.data().content);
             }
           } 
           else {
-            const resSummary = await axios.get(summaryUrl);
-            setSummary(resSummary.data);
-            updateDB(resSummary.data, today, "global");
+            const fullSummary = await axios.get(summaryUrl);
+            setSummary(fullSummary.data);
+            updateDB(fullSummary.data, today, "global");
           }
         });
 
@@ -112,39 +112,33 @@ function HomePage({ history }) {
       <Fragment>
         {/* <div class="container"> */}
         <LoginNews />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            height: "250px",
-            maxWidth: "100%",
-            overflow: "scroll",
-            margin:'1% 5%'
-          }}
+        <h4>News Feed</h4>
+        <div className="News"
+          
         >     
-        {countryNews.length > 0 ? (
-          countryNews.map((el) => (
-            <div class="card align-items-left" style={{ margin: "1% " ,maxWidth:'250px'}}>
-              <div class="card-header">
-                {el.user}
+          {countryNews.length > 0 ? (
+            countryNews.map((el, index) => (
+              <div className="card" align="left" style = {{ margin:"1%"}} class = "text-justify" key={index} >
+                <div className="card-header">
+                  {el.user}
+                </div>
+                <div className="card-body">
+                  {el.description}
+                </div>  
+                  
+                <div className="card-footer">
+                  {el.date}
+                </div>  
+                {/* </div> */}
               </div>
+            ))
+          ) : (
+            <div class="card text-center" style={{ margin: "1% ", maxWidth:'200px' }}>
               <div class="card-body">
-                {el.description}
+                  No News Yet!
               </div>  
-                
-              <div class="card-footer">
-                {el.date}
-              </div>  
-              {/* </div> */}
             </div>
-          ))
-        ) : (
-          <div class="card text-center" style={{ margin: "1% ", maxWidth:'200px' }}>
-            <div class="card-body">
-                No News Yet!
-            </div>  
-          </div>
-        )}
+          )}
         </div>
           {Object.keys(summary).includes("Global") && (
             <Fragment>
@@ -155,6 +149,7 @@ function HomePage({ history }) {
           {week && (
             <Fragment>
               <BarGraph data={week} />
+              {/* <div className="line-separator" /> */}
               <LineGraph data={month} />
             </Fragment>
           )}

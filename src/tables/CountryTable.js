@@ -55,7 +55,13 @@ export default function CountryTable({ data }) {
   };
 
   return (
+    <>
+    
+    <br/><br/><br/>
+    <h4>Country-based Summary</h4>
+    
     <Paper elevation={2}  style={{ margin:'auto',marginTop: "2%" , width:'90%'}} >
+      
       {processed && (
         <TableContainer
           component={Paper}
@@ -78,8 +84,8 @@ export default function CountryTable({ data }) {
                   "Total Recovered",
                   "New Deaths",
                   "Total Deaths",
-                ].map((el) => (
-                  <TableCell align="left">
+                ].map((el, index) => (
+                  <TableCell align="left" key={index}>
                     {el}
                     <br />
                     <KeyboardArrowDownIcon
@@ -117,5 +123,6 @@ export default function CountryTable({ data }) {
         </TableContainer>
       )}
     </Paper>
+  </>                        
   );
 }

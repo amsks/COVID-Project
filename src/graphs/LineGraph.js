@@ -1,15 +1,8 @@
 import { Paper } from "@material-ui/core";
 // import {Paper} from "paper"
 import React, { useState, useEffect } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+
 
 export default function LineGraph({ data }) {
   const [processedData, setProcessedData] = useState(null);
@@ -43,14 +36,16 @@ export default function LineGraph({ data }) {
         }
       }
       // const newData = data.map(mapper);
+      if (excerpt.length == 0) return null ; 
       setProcessedData(excerpt);
     }
   }, [data]);
   return (
-    <Paper
-      elevation={2}
-      style={{ margin: "auto", marginTop: "2%", width: "90%" }}
-    >
+  <>
+    <br/><br/><br/>
+    <h4>Total Cases Time Series</h4>
+    <Paper elevation={2} style={{ margin: "auto", marginTop: "2%", width: "90%" }}>
+      
       <LineChart
         style={{ margin: "auto" }}
         width={700}
@@ -63,7 +58,7 @@ export default function LineGraph({ data }) {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="5 5" />
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
@@ -73,5 +68,6 @@ export default function LineGraph({ data }) {
         <Line dataKey="Total Recovered" stroke="#00C49F" />
       </LineChart>
     </Paper>
+  </>
   );
 }

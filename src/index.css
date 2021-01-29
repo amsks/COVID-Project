@@ -62,14 +62,30 @@ article aside {
     -webkit-box-shadow: 0 0 5px 0 rgba(43, 43, 43, .1), 0 11px 6px -7px rgba(43, 43, 43, .1);
     box-shadow: 0 0 5px 0 rgba(43, 43, 43, .1), 0 11px 6px -7px rgba(43, 43, 43, .1);
     border: none;
-    margin-bottom: 30px;
+    margin-top: 1%;
+    /* margin-bottom: 1%; */
+    /* max-width: 100%;  */
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    background-color: #fff
+    background-color: #f4f4f4;
 }
 .card .card-block {
     padding: 1.25rem
 }
+
+.card-header{
+
+    /* background-color: #f4f4f4; */
+    
+}
+
+.card-body{
+    /* background-color: #fff */
+}
+
+/* .card-footer{
+    background-color: #fff
+} */
 
 div.horizontal{
     float: center;
@@ -170,11 +186,15 @@ button {
 
 h1 {
 color: black; 
-line-height:
+line-height: auto
 }
 
 h1.link {
 color: #4099ff;
+}
+
+h4 {
+
 }
 
 span{
@@ -337,4 +357,14 @@ blockquote footer {
     font-size: small;
     line-height: var(--line-height);
     padding: 1.5rem 0;
+}
+
+.News {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    max-width: 100%;
+    overflow: scroll;
+    margin: 1% 5%;
+    background-color: var(--color-bg);
 }

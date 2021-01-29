@@ -5,9 +5,9 @@ import store from "store";
 function Navigation(props) {
     return (
     <div className="navigation">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container">
-                <Link className="navbar-brand" to="/">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
+            {/* <div className="container"> */}
+                <Link className="navbar-brand" to="/" style={{margin:'1% 5%'}}>
                     COVT : COVID-19 Data Simplified
                 </Link>
                 <button className="navbar-toggler"
@@ -20,7 +20,7 @@ function Navigation(props) {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarResponsive">
+                <div className="collapse navbar-collapse" id="navbarResponsive" style={{margin:'1% 5%'}}>
                     <ul className="navbar-nav ml-auto">
                         {store.get("authorised") ? (
                         <li>
@@ -50,7 +50,7 @@ function Navigation(props) {
                         </li>
                     </ul>
                 </div>
-            </div>
+            {/* </div> */}
         </nav>
     </div>
     );

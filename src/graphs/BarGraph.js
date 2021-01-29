@@ -81,37 +81,42 @@ export default function BarGraph({ data }) {
 
   // console.log(processedData);
   return (
-    <Paper
-      elevation={2}
-      style={{
-        margin: "auto",
-        marginTop: "2%",
-        width: "90%",
-        paddingTop: "2%",
-        paddingBottom: "2%",
-      }}
-    >
-      <BarChart
-        style={{ margin: "auto" }}
-        width={700}
-        height={400}
-        data={processedData}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
+    <>
+      <br/>
+      <br/>
+      <br/>
+      <h4>Daily Corona Virus Cases</h4>
+      <Paper elevation={2} style={{
+          margin: "auto",
+          marginTop: "2%",
+          width: "90%",
+          paddingTop: "2%",
+          paddingBottom: "2%",
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="New Confirmed" fill="#4099ff" />
-        <Bar dataKey="New Deaths" fill="#fc032d" />
-        <Bar dataKey="New Recovered" fill="#00C49F" />
-      </BarChart>
-    </Paper>
+        
+        <BarChart
+          style={{ margin: "auto" }}
+          width={700}
+          height={400}
+          data={processedData}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="New Confirmed" fill="#4099ff" />
+          <Bar dataKey="New Deaths" fill="#fc032d" />
+          <Bar dataKey="New Recovered" fill="#00C49F" />
+        </BarChart>
+      </Paper>
+    </>
   );
 }

@@ -1,10 +1,9 @@
 import { Paper } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { RadialChart } from "react-vis";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 export default function PieGraph({ data }) {
-  // const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
   const COLORS = ["#4099ff", "#00C49F", "#fc032d"];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
@@ -52,7 +51,13 @@ export default function PieGraph({ data }) {
 
   return (
     <div className="Pie waves-effect"> 
+      <br/>
+      <br/>
+      <br/>
+      <h4>Corona Virus Cases Distribution</h4>
       <Paper elevation={2}  style={{ margin:'auto',marginTop: "2%" , width:'90%'}} >
+        {/* <br/> 
+        <h4>Corona Virus Cases Distribution</h4> */}
         {processedData && (
           <PieChart width={400} height={400} style={{ margin: "auto", marginTop:'30px' }}>
             <Pie

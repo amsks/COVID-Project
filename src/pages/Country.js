@@ -14,6 +14,26 @@ import LoginNews from "../components/LoginNews";
 //firebase Imports
 import {db} from "../base"
 
+
+const wrapperStyle = {
+      display: 'block',
+      marginTop: '20px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      width: `100%`,
+      height: '220px',
+    }
+
+const chartMargins = {
+  top: 5,
+  right: 20,
+  left: 0,
+  bottom: 20
+}
+
+
+
+
 function Country({ location }) {
 
   const [summary, setSummary] = useState({});
@@ -55,7 +75,7 @@ function Country({ location }) {
     const fetchData = async () =>  {
       try {
         
-        const monthUrl = `https://corona.lmao.ninja/v3/covid-19/historical/${location.slug}`;
+        const monthUrl = `https://corona.lmao.ninja/v2/covid-19/historical/${location.slug}`;
         
         db.collection("news").doc(location.state).get().then(async (doc) => {
           const today = parseInt(new Date().getTime() / 86400000);
@@ -96,36 +116,36 @@ function Country({ location }) {
         <h1>{location.state}</h1>
         <Fragment>
           <LoginNews />
+          <h4>News Feed</h4>
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
-              height: "250px",
+              flexDirection: "column",
+              height: "400px",
               maxWidth: "100%",
               overflow: "scroll",
               margin:'1% 5%'
             }}
           >     
             {countryNews.length > 0 ? (
-              countryNews.map((el) => (
-                <div class="card align-items-left" style={{ margin: "1% " ,maxWidth:'250px'}}>
-                  <div class="card-header">
+              countryNews.map((el, index) => (
+                <div className="card" align="left" class = "text-justify"  key={index}>
+                  <div className="card-header">
                     {el.user}
                   </div>
-                  <div class="card-body">
+                  <div className="card-body">
                     {el.description}
                   </div>  
                     
-                  <div class="card-footer">
+                  <div className="card-footer">
                     {el.date}
                   </div>  
-                  {/* </div> */}
                 </div>
               ))
             ) : (
               <div class="card text-center" style={{ margin: "1% ", maxWidth:'200px' }}>
                 <div class="card-body">
-                  No News Yet!
+                    No News Added
                 </div>  
               </div>
             )}

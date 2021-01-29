@@ -11,6 +11,10 @@ import {
 export default function SummaryTable({ data }) {
   return (
     <div>
+      <br/>
+      <br/>
+      <br/>
+      <h4>Corona Virus Summary</h4>
       <TableContainer component={Paper} style={{ margin:'auto',marginTop: "2%" , width:'90%'}}>
         <Table aria-label="simple table">
           <TableBody>

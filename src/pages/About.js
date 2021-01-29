@@ -5,8 +5,7 @@ function About() {
     return (
         <div className="about">
             <div className="container">
-                <div className="row align-items-center my-5" text-align="justify">
-                    {/* <div className="col-lg-5"> */}
+                <div className="row align-items-center my-5">
                         <h1 className="font-weight-light" class = "text-justify">About</h1>
                         <p align="left" class = "text-justify">
                             COVT is a a web application to visualize the data related to the progress of the COVID-19 
@@ -27,9 +26,7 @@ function About() {
                     </div>
                     
                 </div>
-                {/* <Footer /> */}
             </div>
-        // </div>
     );
 }
 

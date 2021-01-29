@@ -25,34 +25,27 @@ export default function LoginNews() {
   // Google Sign-in Functionality 
   const signInWithGoogle = () => {
     auth
-      .signInWithPopup(googleProvider)
-      .then((res) => {
-        var userRef = db.collection("users").doc(res.user.email);
+      .signInWithPopup(googleProvider).then((item) => {
+        var userRef = db.collection("eligibleUsers").doc(item.user.email);
         userRef.get().then(async (doc) => {
           if (doc.exists) {
-            setUser(res.user);
+            setUser(item.user);
           } else {
+            alert("You are not an eligible user yet. Please visit the Contact page to get in touch!");
             setUser(null);
+            auth.signOut();
           }
         });
-        console.log(res.user);
+        console.log(item.user);
       }).catch((error) => {
         console.log(error.message);
       });
   };
 
-  // Set the Current User if Logged in
+  // If the authentication has passed, then keep teh user logged-in for multiple pages
   useEffect(() => {
-    auth.onAuthStateChanged(function(user) {
-      if (user) {
-        setUser(user);
-        // console.log(user);
-      } else {
-        console.log("User not signed in");
-      }
-    });
-    
-  })
+    setUser(auth.currentUser);
+  }, [auth.currentUser]);
 
   // Get the country Data for selecting the country
   useEffect( () => {
@@ -74,10 +67,7 @@ export default function LoginNews() {
   
   // Handler for Adding News
   const addNews = () => {
-    // console.log(description);
-    // console.log(selectedCountry);
-    // console.log(new Date().toDateString());
-    // console.log(auth.currentUser);
+
     db.collection("userNews").doc().set({
         description: description,
         date: new Date().toDateString(),
@@ -100,7 +90,7 @@ export default function LoginNews() {
             margin:'1% 5%'
         }}>
           <div style={{ flexGrow: 1 }} >
-            <h5>Welcome {user ? user.displayName : "To Our Website"}</h5>
+            <h5> {user ? ("Welcome" + user.displayName) : "Welcome"}</h5>
           </div>
           {!user && (
             <Button onClick={signInWithGoogle} align="right">
