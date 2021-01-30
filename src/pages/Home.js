@@ -17,10 +17,19 @@ import LoginNews from "../components/LoginNews";
 
 
 //firebase Imports  
-import {db} from "../base"
+import {db, storage} from "../base"
 
 
 function HomePage({ history }) {
+
+  const [image, setImage] = useState("");
+    
+  storage.ref("").child("coronavirus.png").getDownloadURL().then(function (url) {
+          setImage(url);
+      })
+      .catch(function (error) {
+          console.log("Image Could not Be Loaded")
+      });
 
   const [summary, setSummary] = useState({});
   const [week, setWeek] = useState({});
@@ -107,10 +116,12 @@ function HomePage({ history }) {
   
   return (
     <div className="home">
-      {/* <div class="container"> */}
+      <img
+        src={image}
+        style={{ width: "8%" }}
+      />
       <h1>Worldwide Data</h1>
       <Fragment>
-        {/* <div class="container"> */}
         <LoginNews />
         <h4>News Feed</h4>
         <div className="News"
@@ -118,7 +129,7 @@ function HomePage({ history }) {
         >     
           {countryNews.length > 0 ? (
             countryNews.map((el, index) => (
-              <div className="card" align="left" style = {{ margin:"1%"}} class = "text-justify" key={index} >
+              <div className="card" align="left" style = {{ margin:"1%"}} key={index} >
                 <div className="card-header">
                   {el.user}
                 </div>
@@ -149,7 +160,6 @@ function HomePage({ history }) {
           {week && (
             <Fragment>
               <BarGraph data={week} />
-              {/* <div className="line-separator" /> */}
               <LineGraph data={month} />
             </Fragment>
           )}

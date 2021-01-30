@@ -7,8 +7,8 @@ function Contact() {
                 <div className="row align-items-left my-5">
                     <h1 className="font-weight-light" class = "text-justify">Contact</h1>
                     <p align="left" class = "text-justify">
-                        Feel free to contact me at aditya.mohan@eurecom.fr to know more about this or to suggest some edits or modifications. 
-                        I am always open to new suggestions, and would love to get opportunities to  improve this and make it better. I alos 
+                        Feel free to contact me at <h6>aditya.mohan@eurecom.fr</h6> to know more about this project or to suggest some edits or modifications. 
+                        I am always open to new suggestions, and would love to get opportunities to  improve this and make it better. I also 
                         love to collaborate on new projects, so feel free to reach out to me.
                     </p>
 
@@ -16,7 +16,7 @@ function Contact() {
                     <p align="left" class = "text-justify">
                         I am a Master student in the <a href="https://masterschool.eitdigital.eu/">EIT Digital Master School</a> and my second year is at <a href="https://www.eurecom.fr/en">EURECOM</a>. This is the project for the Course 
                         in Cloud Computing and Distributed Systems. My primary interests lie in the field of Artificial Intelligence, and I am 
-                        interested specifically in Multi-Agent Scenarios and Reinforcement Learning. Feel Free to Checkout my <a href="https://https://amsks.github.io/.eurecom.fr/en">WebPage</a>. 
+                        interested specifically in Multi-Agent Scenarios and Reinforcement Learning. Feel Free to Checkout my <a href="https://amsks.github.io/">WebPage</a>. 
                     </p>
 
                 </div>

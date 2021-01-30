@@ -68,24 +68,31 @@ article aside {
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     background-color: #f4f4f4;
+    border-color: #b64901;
+    border-width: 5px;
+   
 }
-.card .card-block {
+/* .card .card-block {
     padding: 1.25rem
-}
+} */
 
 .card-header{
-
+    
+    border-color: #fc032d;
+    /* border-width: 3px; */
+    background-color:var(--color-accent) ;
     /* background-color: #f4f4f4; */
     
 }
 
 .card-body{
-    /* background-color: #fff */
+    background-color: #e7eeed;
 }
 
-/* .card-footer{
-    background-color: #fff
-} */
+.card-footer{
+    /* background-color: #fff */
+    /* border-color: #98FB98; */
+}
 
 div.horizontal{
     float: center;
@@ -367,4 +374,5 @@ blockquote footer {
     overflow: scroll;
     margin: 1% 5%;
     background-color: var(--color-bg);
+    /* border-color: #b64901; */
 }

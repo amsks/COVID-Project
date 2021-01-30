@@ -1,8 +1,9 @@
 import { Paper } from "@material-ui/core";
 // import {Paper} from "paper"
 import React, { useState, useEffect } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
+import "./Styles.css"
 
 export default function LineGraph({ data }) {
   const [processedData, setProcessedData] = useState(null);
@@ -45,7 +46,7 @@ export default function LineGraph({ data }) {
     <br/><br/><br/>
     <h4>Total Cases Time Series</h4>
     <Paper elevation={2} style={{ margin: "auto", marginTop: "2%", width: "90%" }}>
-      
+      {/* <ResponsiveContainer> */}
       <LineChart
         style={{ margin: "auto" }}
         width={700}
@@ -67,6 +68,7 @@ export default function LineGraph({ data }) {
         <Line dataKey="Total Deaths" stroke="#fc032d" />
         <Line dataKey="Total Recovered" stroke="#00C49F" />
       </LineChart>
+      {/* </ResponsiveContainer> */}
     </Paper>
   </>
   );

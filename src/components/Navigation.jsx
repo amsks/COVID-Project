@@ -1,13 +1,19 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import store from "store";
+import React, {useState} from "react";
+import { Link, withRouter,  } from "react-router-dom";
+
+import {storage } from "../base"
 
 function Navigation(props) {
+    
+    
+    
     return (
     <div className="navigation">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
             {/* <div className="container"> */}
+                
                 <Link className="navbar-brand" to="/" style={{margin:'1% 5%'}}>
+                    
                     COVT : COVID-19 Data Simplified
                 </Link>
                 <button className="navbar-toggler"
@@ -22,22 +28,14 @@ function Navigation(props) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarResponsive" style={{margin:'1% 5%'}}>
                     <ul className="navbar-nav ml-auto">
-                        {store.get("authorised") ? (
-                        <li>
-                            <Link className="nav-link" to="/" onClick={() => store.set("authorised", false)}>
-                                Logout
-                            </Link>
-                        </li>
-                        ) : (
-                        <>
+                        
                         <li className={`nav-item  ${props.location.pathname === "/" ? "active" : "" }`}>
                             <Link className="nav-link" to="/">
                                 Home
                                 <span className="sr-only">(current)</span>
                             </Link>
                         </li>
-                        </>
-                        )}
+                        
                         <li className={`nav-item  ${props.location.pathname === "/about" ? "active" : ""}`}>
                             <Link className="nav-link" to="/about">
                                 About
